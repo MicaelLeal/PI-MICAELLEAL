@@ -61,7 +61,7 @@ def main():
 	key = input('Buscar: ')
 	camada = int(input('Profundidade: '))
 
-	buscar_recursiva(url, 1, key)
+	buscar_recursiva(url, camada, key)
 
 	fim = time.time()
 
