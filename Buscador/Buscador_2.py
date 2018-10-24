@@ -2,7 +2,9 @@ import requests
 import re
 from bs4 import BeautifulSoup
 import time
+import requests_cache
 
+requests_cache.install_cache(expire_after=1800)
 all_links = {}
 
 def remover_scripts(soup):
