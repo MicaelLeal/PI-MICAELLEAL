@@ -16,7 +16,9 @@ class Post(models.Model):
     text = models.CharField(max_length=60)
     date = models.DateField()
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE,
-                                related_name='timeline')
+                                related_name='posts')
+
+    profiles_reactives = models.ManyToManyField(Profile, through='Reaction')
 
 
 class Comment(models.Model):
@@ -29,17 +31,9 @@ class Comment(models.Model):
 
 
 class Reaction(models.Model):
-    REACTION_TYPE = (
-        ('Curtir' , 1)
-        ('Amar' , 2),
-        ('HAHA', 3),
-        ('HOOOHH', 4),
-        ('GR', 5)
-    )
-    tipo = models.CharField(max_length=60, choices=REACTION_TYPE)
+
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reactions')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='reactions')
+    tipo = models.CharField(max_length=60)
     date = models.DateField()
-    post = models.ForeignKey(Post, on_delete=models.CASCADE,
-                             related_name='messages')
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE,
-                                related_name='messages')
     weidht = models.IntegerField()
