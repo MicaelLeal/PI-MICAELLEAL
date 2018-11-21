@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+
+    <h2>Answer</h2>
+    {% for question in questions %}
+    <ul>
+{#        <a href= "{% url 'question' question.id %}"><li>{{ qeustion.question_text }}</li></a>#}
+        <a href= "{% url 'show_question' question.id %}"><li>{{ question.question_text }}</li></a>
+{#            {% if questao.escolhas %}#}
+{#                {% for escolha in questao.escolhas.all %}#}
+{#                    <a href="{% url 'votar' %}"></a>#}
+{#                    <button class="btn-primary">{{escolha}}</button>#}
+{#                {% endfor %}#}
+{#            {% endif %}#}
+    </ul>
+    {% endfor %}
+{% endblock %}

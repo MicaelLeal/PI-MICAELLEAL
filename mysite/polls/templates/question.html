@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+    <ul>
+        <li><strong>{{question.question_text}}</strong></li>
+        {% if question.choices %}#}
+                {% for choice in question.choices.all %}
+{#                    <a href="{% url 'votar' %}">#}
+                    <a href="#">
+                        <button class="btn-defaultb">{{choice}}</button>
+                    </a>
+                {% endfor %}
+            {% endif %}
+
+        {% if question.closed %}
+            <li>Closed</li>
+        {% else %}
+            <a href="{% url 'show_results' question.id %}"><li>Results</li></a>
+        {% endif %}
+        <li>Date: {{question.pub_date}}</li>
+    </ul>
+{% endblock %}
