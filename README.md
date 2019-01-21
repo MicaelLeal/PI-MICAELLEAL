@@ -6,7 +6,7 @@ Repositório para projetos da disciplina de programação para internet
 * E-mail: mycaellmoura@hotmail.com
 
 ### Habilidades
-* Limguagens: Python, Java, C/C++ e SQL.
+* Linguagens: Python, Java, C/C++ e SQL.
 * Programação para Android
 * Um Pouco de HTML/CSS
 
